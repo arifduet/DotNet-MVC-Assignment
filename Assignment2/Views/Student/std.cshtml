@@ -1,0 +1,58 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List<Assignment2.Models.Student>
+<h2><u>Student List</u></h2>
+<style>
+    /* Add border to the table */
+    table {
+        width: 100%; /* Full width */
+        border-collapse: collapse; /* Collapse borders into a single border */
+        margin-top: 20px; /* Space above the table */
+    }
+
+    /* Add border to table header */
+    th {
+        border: 2px solid #e62121; /* Blue border for header */
+        padding: 10px; /* Padding inside header cells */
+        background-color: #f8f9fa; /* Light background color */
+    }
+
+    /* Add border to table data cells */
+    td {
+        border: 1px solid #ddd; /* Light gray border for data cells */
+        padding: 10px; /* Padding inside cells */
+    }
+
+    /* Optional: Style for hover effect */
+    tr:hover {
+        background-color: #f1f1f1; /* Light gray background on hover */
+    }
+</style>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>Student Name</th>
+            <th>Courses</th>
+            <th>Teacher</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            foreach (var courses in student.Courses)
+            {
+                <tr>
+                    <td>@student.Name</td>
+                    <td>@courses.CourseName</td>
+                    <td>@courses.Teacher.Name</td>
+                </tr>
+            }
+
+        }
+
+
+    </tbody>
+
+</table>
